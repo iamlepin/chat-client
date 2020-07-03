@@ -52,7 +52,7 @@ const loginFbUser = (body) => {
   return post(link, body)
 }
 
-const checkUserName = (name) => {
+const checkBy = (name) => {
   const link = `/users/check/name/${name}`
   return get(link)
 }

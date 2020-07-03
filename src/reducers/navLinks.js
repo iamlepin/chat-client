@@ -19,11 +19,11 @@ const initialState = [
   },
 ];
 
-const navLinksReducer = (state = initialState, action) => {
-  switch(action.type) {
+const navLinks = (state = initialState, action) => {
+  switch (action.type) {
     default:
       return state;
   }
 }
 
-export default navLinksReducer;
+export default navLinks;
