@@ -77,9 +77,11 @@ class SignUp extends React.Component {
 
   checkUserNameExistence = (rule, value, callback) => {
     if (!trimValue(value)) { return callback('Please enter your username!') }
-    nodeApi.checkUserName(value)
-      .then(({ error }) => {
-        if (error) {
+    nodeApi.checkBy({
+      name: value,
+    })
+      .then(({ data }) => {
+        if (data.isExists) {
           console.log('Username exists.')
           message.error('Username already registered.')
           callback('Username already registered.')
@@ -93,9 +95,11 @@ class SignUp extends React.Component {
 
   checkUserMailExistence = (rule, value, callback) => {
     if (!trimValue(value)) { return callback('Please enter your email!') } // fix
-    nodeApi.checkUserEmail(value)
-      .then(({ error }) => {
-        if (error) {
+    nodeApi.checkBy({
+      email: value,
+    })
+      .then(({ data }) => {
+        if (data.isExists) {
           console.log('Email exists.')
           message.error('Email already registered.')
           callback('Email already registered.')
